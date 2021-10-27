@@ -113,12 +113,12 @@ public class Main extends Application {
         });
         grid.add(zero, 0, 3);
 
-        Button C = new Button( "C");
-        C.setMinSize(50,50);
+        Button c = new Button( "C");
+        c.setMinSize(50,50);
 
 
 
-        C.setOnAction(new EventHandler<ActionEvent>() {
+        c.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 operatorChosen = false;
@@ -130,7 +130,7 @@ public class Main extends Application {
 
             }
         });
-        grid.add(C, 1, 3);
+        grid.add(c, 1, 3);
 
         Button equals = new Button("=");
         equals.setMinSize(50,50);
