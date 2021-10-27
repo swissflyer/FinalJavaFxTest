@@ -45,19 +45,7 @@ public class Main extends Application {
                 button.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent actionEvent) {
-                        if (operatorChosen)
-                        {
-                            secondOp.append(number);
-                            fullString.append(number);
-
-                        }
-                        else
-                        {
-                            firstOp.append(number);
-                            fullString.append(number);
-
-                        }
-                        answer.setText(fullString.toString());
+                        handleSetUp(number);
 
                     }
                 });
@@ -184,6 +172,24 @@ public class Main extends Application {
         secondOp = new StringBuilder();
         fullString = new StringBuilder();
         operatorChosen = false;
+    }
+
+    public void handleSetUp(int number)
+    {
+        if (operatorChosen)
+        {
+            secondOp.append(number);
+            fullString.append(number);
+
+        }
+        else
+        {
+            firstOp.append(number);
+            fullString.append(number);
+
+        }
+        answer.setText(fullString.toString());
+
     }
 
 
