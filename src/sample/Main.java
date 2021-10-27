@@ -22,9 +22,9 @@ public class Main extends Application {
     char currentOperator = 'a';
     char operator = 'a';
     Label answer;
-    String firstOp = "";
-    String secondOp = "";
-    String fullString = "";
+    StringBuilder firstOp = new StringBuilder();
+    StringBuilder secondOp = new StringBuilder();;
+    StringBuilder fullString = new StringBuilder();
 
     @Override
     public void start(Stage stage) throws Exception{
@@ -46,17 +46,17 @@ public class Main extends Application {
                     public void handle(ActionEvent actionEvent) {
                         if (operatorChosen)
                         {
-                            secondOp += number;
-                            fullString += number;
+                            secondOp.append(number);
+                            fullString.append(number);
 
                         }
                         else
                         {
-                            firstOp += number;
-                            fullString += number;
+                            firstOp.append(number);
+                            fullString.append(number);
 
                         }
-                        answer.setText(fullString);
+                        answer.setText(fullString.toString());
 
                     }
                 });
@@ -64,6 +64,7 @@ public class Main extends Application {
                 grid.add(button, c, r);
                 count++;
             }
+
             char operator = 'a';
             if (r == 0)
                 operator = 'X';
@@ -82,8 +83,8 @@ public class Main extends Application {
 
                     currentOperator=  button.getText().charAt(0);
                     operatorChosen = true;
-                    fullString += currentOperator;
-                    answer.setText(fullString);
+                    fullString.append(currentOperator);
+                    answer.setText(fullString.toString());
                 }
             });
             grid.add(button, 3, r);
@@ -98,9 +99,9 @@ public class Main extends Application {
                 {
                     if (currentOperator == '/') {
                         answer.setText("Error");
-                        fullString = "";
-                        firstOp = "";
-                        secondOp = "";
+                        fullString = new StringBuilder();
+                        firstOp = new StringBuilder();
+                        secondOp = new StringBuilder();
                         operatorChosen = false;
                     }
 
@@ -122,9 +123,9 @@ public class Main extends Application {
                 operatorChosen = false;
                 sum = 0;
                 answer.setText(sum + "");
-                fullString = "";
-                firstOp = "";
-                secondOp = "";
+                fullString = new StringBuilder();
+                firstOp = new StringBuilder();
+                secondOp = new StringBuilder();
 
             }
         });
@@ -136,17 +137,17 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent actionEvent) {
                 if (currentOperator == '+')
-                    sum = Integer.parseInt(firstOp) + Integer.parseInt(secondOp);
+                    sum = Integer.parseInt(firstOp.toString()) + Integer.parseInt(secondOp.toString());
                 else if (currentOperator == '-')
-                    sum = Integer.parseInt(firstOp) - Integer.parseInt(secondOp);
+                    sum = Integer.parseInt(firstOp.toString()) - Integer.parseInt(secondOp.toString());
                 else if (currentOperator == '/')
-                    sum = Integer.parseInt(firstOp) / Integer.parseInt(secondOp);
+                    sum = Integer.parseInt(firstOp.toString()) / Integer.parseInt(secondOp.toString());
                 else if (currentOperator == 'X')
-                    sum = Integer.parseInt(firstOp) * Integer.parseInt(secondOp);
+                    sum = Integer.parseInt(firstOp.toString()) * Integer.parseInt(secondOp.toString());
                 answer.setText(sum + "");
-                firstOp = "";
-                secondOp = "";
-                fullString = "";
+                firstOp = new StringBuilder();
+                secondOp = new StringBuilder();
+                fullString = new StringBuilder();
                 operatorChosen = false;
 
             }
@@ -162,7 +163,7 @@ public class Main extends Application {
             public void handle(ActionEvent actionEvent) {
                 currentOperator=  division.getText().charAt(0);
                 operatorChosen = true;
-                fullString += "/";
+                fullString.append("/");
             }
 
 
