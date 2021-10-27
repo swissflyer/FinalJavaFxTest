@@ -20,11 +20,11 @@ public class Main extends Application {
     int sum = 0;
     boolean operatorChosen = false;
     char currentOperator = 'a';
-    char operator = 'a';
+
     Label answer;
     StringBuilder firstOp = new StringBuilder();
 
-    StringBuilder secondOp = new StringBuilder();;
+    StringBuilder secondOp = new StringBuilder();
     StringBuilder fullString = new StringBuilder();
 
     @Override
@@ -61,7 +61,7 @@ public class Main extends Application {
 
                     }
                 });
-                //button.setMaxSize(20,20);
+
                 grid.add(button, c, r);
                 count++;
             }
