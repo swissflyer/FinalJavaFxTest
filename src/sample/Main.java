@@ -137,19 +137,8 @@ public class Main extends Application {
         equals.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                if (currentOperator == '+')
-                    sum = Integer.parseInt(firstOp.toString()) + Integer.parseInt(secondOp.toString());
-                else if (currentOperator == '-')
-                    sum = Integer.parseInt(firstOp.toString()) - Integer.parseInt(secondOp.toString());
-                else if (currentOperator == '/')
-                    sum = Integer.parseInt(firstOp.toString()) / Integer.parseInt(secondOp.toString());
-                else if (currentOperator == 'X')
-                    sum = Integer.parseInt(firstOp.toString()) * Integer.parseInt(secondOp.toString());
-                answer.setText(sum + "");
-                firstOp = new StringBuilder();
-                secondOp = new StringBuilder();
-                fullString = new StringBuilder();
-                operatorChosen = false;
+                handleOperator(currentOperator);
+
 
             }
 
@@ -178,6 +167,23 @@ public class Main extends Application {
         calc.getChildren().addAll(answer, grid);
         stage.setScene(new Scene(calc));
         stage.show();
+    }
+
+    public void handleOperator(char currentOperator)
+    {
+        if (currentOperator == '+')
+            sum = Integer.parseInt(firstOp.toString()) + Integer.parseInt(secondOp.toString());
+        else if (currentOperator == '-')
+            sum = Integer.parseInt(firstOp.toString()) - Integer.parseInt(secondOp.toString());
+        else if (currentOperator == '/')
+            sum = Integer.parseInt(firstOp.toString()) / Integer.parseInt(secondOp.toString());
+        else if (currentOperator == 'X')
+            sum = Integer.parseInt(firstOp.toString()) * Integer.parseInt(secondOp.toString());
+        answer.setText(sum + "");
+        firstOp = new StringBuilder();
+        secondOp = new StringBuilder();
+        fullString = new StringBuilder();
+        operatorChosen = false;
     }
 
 
