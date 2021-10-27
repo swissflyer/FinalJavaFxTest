@@ -23,6 +23,7 @@ public class Main extends Application {
     char operator = 'a';
     Label answer;
     StringBuilder firstOp = new StringBuilder();
+
     StringBuilder secondOp = new StringBuilder();;
     StringBuilder fullString = new StringBuilder();
 
