@@ -84,21 +84,21 @@ public class Main extends Application {
         zero.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                if (operatorChosen)
-                {
-                    if (currentOperator == '/') {
-                        answer.setText("Error");
-                        fullString = new StringBuilder();
-                        firstOp = new StringBuilder();
-                        secondOp = new StringBuilder();
-                        operatorChosen = false;
-                    }
-
-                    else if (currentOperator == 'X')
-                        sum = 0;
-
-                }
-                else
+//                if (operatorChosen)
+//                {
+//                    if (currentOperator == '/') {
+//                        answer.setText("Error");
+//                        fullString = new StringBuilder();
+//                        firstOp = new StringBuilder();
+//                        secondOp = new StringBuilder();
+//                        operatorChosen = false;
+//                    }
+//
+//                    else if (currentOperator == 'X')
+//                        sum = 0;
+//
+//                }
+//                else
                     handleSetUp(0);
             }
         });
@@ -184,8 +184,18 @@ public class Main extends Application {
             sum = Double.parseDouble(firstOp.toString()) + Double.parseDouble(secondOp.toString());
         else if (currentOperator == '-')
             sum = Double.parseDouble(firstOp.toString()) - Double.parseDouble(secondOp.toString());
-        else if (currentOperator == '/')
+        else if (currentOperator == '/') {
+            if (Double.parseDouble(secondOp.toString()) == 0)
+            {
+                answer.setText("error");
+                firstOp = new StringBuilder();
+                secondOp = new StringBuilder();
+                fullString = new StringBuilder();
+                operatorChosen = false;
+                return;
+            }
             sum = Double.parseDouble(firstOp.toString()) / Double.parseDouble(secondOp.toString());
+        }
         else if (currentOperator == 'X')
             sum = Double.parseDouble(firstOp.toString()) * Double.parseDouble(secondOp.toString());
         answer.setText(sum + "");
