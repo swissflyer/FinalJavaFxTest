@@ -92,8 +92,6 @@ public class Main extends Application {
         Button c = new Button( "C");
         c.setMinSize(50,50);
 
-
-
         c.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -114,10 +112,7 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent actionEvent) {
                 handleOperator(currentOperator);
-
-
             }
-
 
         });
         grid.add(equals, 2, 3);
@@ -132,8 +127,6 @@ public class Main extends Application {
                 fullString.append("/");
                 answer.setText(fullString.toString());
             }
-
-
         });
         grid.add(division, 3, 3);
 
@@ -149,9 +142,8 @@ public class Main extends Application {
                 answer.setText(logSum + "");
 
             }
-
-
         });
+
         grid.add(log, 0, 4);
 
         VBox calc = new VBox();
