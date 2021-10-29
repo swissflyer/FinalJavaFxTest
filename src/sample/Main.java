@@ -84,21 +84,6 @@ public class Main extends Application {
         zero.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-//                if (operatorChosen)
-//                {
-//                    if (currentOperator == '/') {
-//                        answer.setText("Error");
-//                        fullString = new StringBuilder();
-//                        firstOp = new StringBuilder();
-//                        secondOp = new StringBuilder();
-//                        operatorChosen = false;
-//                    }
-//
-//                    else if (currentOperator == 'X')
-//                        sum = 0;
-//
-//                }
-//                else
                     handleSetUp(0);
             }
         });
