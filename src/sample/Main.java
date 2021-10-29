@@ -31,7 +31,6 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception{
         GridPane grid = new GridPane();
 
-
         grid.setHgap(5);
         grid.setVgap(5);
 
@@ -140,7 +139,6 @@ public class Main extends Application {
                 firstOp = new StringBuilder();
                 fullString = new StringBuilder();
                 answer.setText(logSum + "");
-
             }
         });
 
