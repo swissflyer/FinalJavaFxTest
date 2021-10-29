@@ -17,7 +17,7 @@ import java.awt.*;
 
 public class Main extends Application {
 
-    int sum = 0;
+    double sum = 0;
     boolean operatorChosen = false;
     char currentOperator = 'a';
 
@@ -96,7 +96,10 @@ public class Main extends Application {
 
                     else if (currentOperator == 'X')
                         sum = 0;
+
                 }
+                else
+                    handleSetUp(0);
             }
         });
         grid.add(zero, 0, 3);
@@ -142,11 +145,29 @@ public class Main extends Application {
                 currentOperator=  division.getText().charAt(0);
                 operatorChosen = true;
                 fullString.append("/");
+                answer.setText(fullString.toString());
             }
 
 
         });
         grid.add(division, 3, 3);
+
+        Button log = new Button("log10");
+        log.setMinSize(50,50);
+        log.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                double logSum = Math.log10(Double.parseDouble(firstOp.toString()));
+
+                firstOp = new StringBuilder();
+                fullString = new StringBuilder();
+                answer.setText(logSum + "");
+
+            }
+
+
+        });
+        grid.add(log, 0, 4);
 
         VBox calc = new VBox();
 
@@ -160,13 +181,13 @@ public class Main extends Application {
     public void handleOperator(char currentOperator)
     {
         if (currentOperator == '+')
-            sum = Integer.parseInt(firstOp.toString()) + Integer.parseInt(secondOp.toString());
+            sum = Double.parseDouble(firstOp.toString()) + Double.parseDouble(secondOp.toString());
         else if (currentOperator == '-')
-            sum = Integer.parseInt(firstOp.toString()) - Integer.parseInt(secondOp.toString());
+            sum = Double.parseDouble(firstOp.toString()) - Double.parseDouble(secondOp.toString());
         else if (currentOperator == '/')
-            sum = Integer.parseInt(firstOp.toString()) / Integer.parseInt(secondOp.toString());
+            sum = Double.parseDouble(firstOp.toString()) / Double.parseDouble(secondOp.toString());
         else if (currentOperator == 'X')
-            sum = Integer.parseInt(firstOp.toString()) * Integer.parseInt(secondOp.toString());
+            sum = Double.parseDouble(firstOp.toString()) * Double.parseDouble(secondOp.toString());
         answer.setText(sum + "");
         firstOp = new StringBuilder();
         secondOp = new StringBuilder();
