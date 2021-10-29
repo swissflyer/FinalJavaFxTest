@@ -152,6 +152,9 @@ public class Main extends Application {
         });
         grid.add(division, 3, 3);
 
+        String A;
+
+
         Button log = new Button("log10");
         log.setMinSize(50,50);
         log.setOnAction(new EventHandler<ActionEvent>() {
